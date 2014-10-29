@@ -1,9 +1,9 @@
 Полезные поведения для Yii2
 =============
 
-#Установка:#
+###Установка:###
 
-php composer.phar require --prefer-dist elle/yii2-behaviors "*"
+php composer.phar require --prefer-dist developerUz/yii2-behaviors "*"
 
 DateTimeBehavior
 -------------
@@ -13,13 +13,11 @@ DateTimeBehavior
 
 Пример использования в моделе:
 
-    use elle\behaviors\DateTimeBehavior;
-
     public function behaviors()
     {
         return  [
             'dateTimeStampBehavior' => [
-                'class' => DateTimeBehavior::className(),
+                'class' => developerUz\behaviors\DateTimeBehavior::className(),
                 'dateTimeFields' => 'date_create',
                 'format'         => 'd/m/Y H:i',
             ]

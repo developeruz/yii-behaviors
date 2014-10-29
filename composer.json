@@ -1,5 +1,5 @@
 {
-    "name": "elle/yii2-behaviors",
+    "name": "developerUz/yii2-behaviors",
     "description": "Behaviors for Yii2",
     "keywords": ["yii", "behaviors", "behavior", "date-converter"],
     "type": "yii2-extension",
