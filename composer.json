@@ -1,0 +1,20 @@
+{
+    "name": "elle/yii2-behaviors",
+    "description": "Behaviors for Yii2",
+    "keywords": ["yii", "behaviors", "behavior", "date-converter"],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elvira Sheina",
+            "email": "elleuz@gmail.com",
+            "homepage": "http://developer.uz"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "support": {
+        "issues": "https://github.com/DeveloperUz/yii_behaviors/issues"
+    }
+}
