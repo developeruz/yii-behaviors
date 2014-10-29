@@ -3,7 +3,7 @@
 
 ###Установка:###
 
-php composer.phar require --prefer-dist developerUz/yii2-behaviors "*"
+php composer.phar require --prefer-dist developerUz/yii_behaviors "*"
 
 DateTimeBehavior
 -------------

@@ -1,5 +1,5 @@
 {
-    "name": "developerUz/yii2-behaviors",
+    "name": "developerUz/yii_behaviors",
     "description": "Behaviors for Yii2",
     "keywords": ["yii", "behaviors", "behavior", "date-converter"],
     "type": "yii2-extension",
@@ -15,6 +15,6 @@
         "yiisoft/yii2": "*"
     },
     "support": {
-        "issues": "https://github.com/DeveloperUz/yii_behaviors/issues"
+        "issues": "https://github.com/developerUz/yii_behaviors/issues"
     }
 }
