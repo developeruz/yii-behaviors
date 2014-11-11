@@ -12,11 +12,11 @@ class SimpleFormBehavior extends AttributeBehavior {
     public $formMethod = 'post';
     public $formAction = '';
     public $config = [
-        'password' => [],
-        'hidden'   => [],
-        'file'     => [],
-        'boolean'  => [],
-        'dropDown' => []
+        self::TypePassword => [],
+        self::TypeHidden   => [],
+        self::TypeFile     => [],
+        self::TypeBoolean  => [],
+        self::TypeDropDown => []
 
     ];
     public $widget = [];
@@ -48,9 +48,9 @@ class SimpleFormBehavior extends AttributeBehavior {
         $this->form =  Yii::createObject('developeruz\behaviors\components\DevActiveForm');
         $this->schema = $this->owner->getTableSchema();
 
-        foreach ($this->owner->activeAttributes() as $filed)
+        foreach ($this->owner->activeAttributes() as $field)
         {
-            $formFields[] = $this->renderField($filed);
+            $formFields[] = $this->renderField($field);
         }
 
         $result = $this->form->beginForm($this->formAction, $this->formMethod, $this->formOption);
@@ -66,32 +66,29 @@ class SimpleFormBehavior extends AttributeBehavior {
         if(!$type)
             $type = $this->schema->columns[$fieldName]->type;
 
-        $filed = $this->form->field($this->owner, $fieldName);
+        $field = $this->form->field($this->owner, $fieldName);
 
         if($type == self::TypeHidden)
-                $input = $filed->hiddenInput();
+                $input = $field->hiddenInput();
         else if($type == self::TypePassword)
-               $input = $filed->passwordInput();
+               $input = $field->passwordInput();
         else if($type == self::TypeFile)
-            $input = $filed->fileInput();
+            $input = $field->fileInput();
         else if($type == self::TypeBoolean)
-            $input = $filed->checkbox();
+            $input = $field->checkbox();
         else if($type == self::TypeDropDown)
-            $input = $filed->dropDownList($this->config['dropDown'][$fieldName]);
-        else if($type == self::TypeString)
-            $input = $filed->textInput(['maxlength' => 255]);
+            $input = $field->dropDownList($this->config['dropDown'][$fieldName]);
         else if($type == self::TypeText)
-            $input = $filed->textarea(['row' => 10]);
+            $input = $field->textarea();
         else
-           $input = $filed->textInput(['maxlength' => 255]);
+           $input = $field->textInput();
 
         if(array_key_exists ($fieldName, $this->widget))
             $input->widget($this->widget[$fieldName]['class'], $this->widget[$fieldName]['config']);
 
             if($type != self::TypeHidden)
             {
-                if($type == self::TypeBoolean) $label = '';
-                else $label = Html::activeLabel($this->owner, $fieldName);
+                $label = ($type == self::TypeBoolean) ? '' : Html::activeLabel($this->owner, $fieldName);
                 $error = implode(', ', $this->owner->getErrors($fieldName));
                 return "<div class='field {$type}'>
                     {$label}
