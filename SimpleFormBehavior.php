@@ -69,30 +69,27 @@ class SimpleFormBehavior extends AttributeBehavior
 
         $field = $this->form->field($this->owner, $fieldName);
 
-        if ($type == self::TypeHidden) {
-            $input = $field->hiddenInput();
-        } else {
-            if ($type == self::TypePassword) {
+        switch ($type) {
+            case self::TypeHidden:
+                $input = $field->hiddenInput();
+                break;
+            case self::TypePassword:
                 $input = $field->passwordInput();
-            } else {
-                if ($type == self::TypeFile) {
-                    $input = $field->fileInput();
-                } else {
-                    if ($type == self::TypeBoolean) {
-                        $input = $field->checkbox();
-                    } else {
-                        if ($type == self::TypeDropDown) {
-                            $input = $field->dropDownList($this->config['dropDown'][$fieldName]);
-                        } else {
-                            if ($type == self::TypeText) {
-                                $input = $field->textarea();
-                            } else {
-                                $input = $field->textInput();
-                            }
-                        }
-                    }
-                }
-            }
+                break;
+            case self::TypeFile:
+                $input = $field->fileInput();
+                break;
+            case self::TypeBoolean:
+                $input = $field->checkbox();
+                break;
+            case self::TypeDropDown:
+                $input = $field->dropDownList($this->config['dropDown'][$fieldName]);
+                break;
+            case self::TypeText:
+                $input = $field->textarea();
+                break;
+            default:
+                $input = $field->textInput();
         }
 
         if (array_key_exists($fieldName, $this->widget)) {
