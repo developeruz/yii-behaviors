@@ -1,6 +1,15 @@
 <?php
 namespace developeruz\behaviors;
 
+/**
+ * DateTimeBehavior for Yii2
+ *
+ * @author Elle <elleuz@gmail.com>
+ * @version 0.1
+ * @package Behaviors for Yii2
+ *
+ */
+
 use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveRecord;
 

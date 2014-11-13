@@ -1,6 +1,14 @@
 <?php
 namespace developeruz\behaviors\components;
 
+/**
+ * DevActiveForm
+ *
+ * @author Elle <elleuz@gmail.com>
+ * @version 0.1
+ * @package Behaviors for Yii2
+ *
+ */
 use Yii;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;

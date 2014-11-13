@@ -1,6 +1,16 @@
 <?php
 namespace developeruz\behaviors;
 
+/**
+ * SimpleFormBehavior for Yii2
+ *
+ * @author Elle <elleuz@gmail.com>
+ * @version 0.1
+ * @package Behaviors for Yii2
+ *
+ */
+
+
 use Yii;
 use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveRecord;
@@ -60,7 +70,7 @@ class SimpleFormBehavior extends AttributeBehavior
         $this->owner->{$this->resultFormField} = $result;
     }
 
-    private function renderField($fieldName)
+    protected function renderField($fieldName)
     {
         $type = $this->checkCustomType($fieldName);
         if (!$type) {
@@ -109,7 +119,7 @@ class SimpleFormBehavior extends AttributeBehavior
         }
     }
 
-    private function checkCustomType($fieldName)
+    protected function checkCustomType($fieldName)
     {
         foreach ($this->config as $type => $array) {
             if (in_array($fieldName, $array) || array_key_exists($fieldName, $array)) {
