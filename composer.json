@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "*"
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-imagine": "*"
     },
     "support": {
         "issues": "https://github.com/developeruz/yii-behaviors/issues"
